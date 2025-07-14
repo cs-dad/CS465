@@ -36,7 +36,8 @@ const cs465Setup = require('./college/cs465/cs465setup');
 
 
 // use vhost to host the subdomain
-app.use(vhost('cs465.csdad.us', cs465Setup()));
+app.use(vhost(process.env.NODE_ENV === 'production'
+  ? 'cs465.csdad.us' : 'cs465.localhost', cs465Setup()));
 
 // static file hosting
 app.use(express.static(path.join(__dirname, 'public')));
