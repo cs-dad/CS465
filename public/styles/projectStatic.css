@@ -1,0 +1,178 @@
+@import url('/styles/homePage.css'); /* Reuse shared styles from the homepage */
+
+/* Main wrapper for the entire projects section */
+.projects-section {
+  padding: 0.2rem 2rem 6rem; /* Slight padding at top, lots at bottom for spacing */
+  text-align: center; /* Center all inner text and elements */
+}
+
+/* Main heading for the Projects page */
+.projects-section h1 {
+  font-size: 2.5rem;
+  color: var(--accent); /* Accent color defined in :root */
+  margin-bottom: 3rem;
+}
+
+/* Grid container that holds all project cards */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 3rem; /* Space between cards */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Each individual project card */
+.project-card {
+  background-color: rgba(255, 255, 255, 0.03); /* Subtle translucent background */
+  color: var(--text-dark);
+  border: 1px solid var(--glow); /* Neon-like border */
+  border-radius: 12px;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 0 10px rgba(100, 255, 218, 0.1); /* Soft glow around card */
+  transition: transform 0.2s, box-shadow 0.3s; /* Smooth hover effect */
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push tags to bottom */
+  height: 100%;
+}
+
+/* Card hover animation for interactivity */
+.project-card:hover {
+  transform: translateY(-4px); /* Slight lift effect */
+  box-shadow: 0 0 14px var(--glow); /* Brighter glow on hover */
+}
+
+/* Project title inside each card */
+.project-title {
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+/* Short description for each project */
+.project-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* Multiline clamp - limit text height */
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  -webkit-box-orient: vertical;
+
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Container for the tech stack tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap; /* Wrap to next line if needed */
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: auto; /* Push to bottom of card */
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+/* Each individual tag badge */
+.project-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px; /* Makes the tag fully rounded */
+  background-color: var(--dropdown-bg);
+  color: var(--dropdown-fg);
+  border: 1px solid var(--glow);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Floating container for all alert notifications */
+#notification-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999; /* Keep above everything else */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Individual notification box */
+.notification {
+  position: relative;
+  background-color: var(--dropdown-bg);
+  color: var(--dropdown-fg);
+  padding: 1rem 2.5rem 1rem 1rem;
+  border: 1px solid var(--glow);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+
+  /* Fade/slide in animation setup */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+/* When notification is active, show it */
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Close button inside the notification */
+.notification button {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Custom scrollbar width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Remove up/down arrow buttons on scrollbars */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--glow); /* Match neon theme */
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box; /* Creates inner spacing effect */
+}
+
+/* Scrollbar background track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--glow) transparent;
+}

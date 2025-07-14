@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Projects</title>
+  <link rel="stylesheet" href="/styles/projectStatic.css">
+</head>
+<body class="theme">
+
+  <canvas id="particles"></canvas>
+
+  <!-- Dropdown Nav -->
+  <button id="dropdownBtn" class="dropdown-toggle">&#9776;</button>
+  <div id="dropdownMenu" class="dropdown-menu">
+    <a href="/index.html">Home</a>
+    <button id="toggleThemeBtn">Toggle Theme</button>
+  </div>
+
+  <main>
+    <section class="projects-section">
+      <h1>My Projects</h1>
+      <!-- Container for loaded projects to be rendered into -->
+      <div id="projects-container" class="projects-container"></div>
+    </section>
+  </main>
+
+  <!-- As we're doing AJAX loading, we need a way to alert the user if the loading failed. -->
+  <div id="notification-container"></div>
+
+  <!-- Scripts -->
+  <script src="/scripts/projectStatic.js"></script>
+  <script src="/scripts/dropdownToggle.js"></script>
+</body>
+</html>

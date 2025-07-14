@@ -1,0 +1,29 @@
+/* Hide the default system cursor across the page */
+html, body, * {
+  cursor: none !important;
+}
+
+/* Custom cursor override for interactive elements */
+a, button, .dropdown-toggle {
+  cursor: default !important;
+}
+
+/* Glowing custom cursor */
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  box-shadow: var(--glow);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease;
+}
+
+/* Placed this in a separate file as some children pages utilize the custom cursor
+ * and some do not. This allows us to only load this file when needed.
+ */

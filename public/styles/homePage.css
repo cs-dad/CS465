@@ -1,0 +1,154 @@
+:root {
+  /* Default (dark mode) theme colors */
+  --bg-dark: #0A192F;
+  --text-dark: #E0F7FA;
+  --accent: #64FFDA;
+  --glow: #A7FFEB;
+
+  --dropdown-bg: #0F2A44;
+  --dropdown-fg: #E0F7FA;
+}
+
+/* Base page styling */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  transition: background 0.5s, color 0.5s;
+}
+
+
+/* Light mode override when 'dark-theme' class is applied */
+body.dark-theme {
+  --bg-dark: #FFFFFF;
+  --text-dark: #0A192F;
+  --accent: #00796B;
+  --glow: #4DB6AC;
+
+  --dropdown-bg: #E0F7FA;
+  --dropdown-fg: #0A192F;
+}
+
+/* Full-screen animated background canvas */
+canvas#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Hamburger button to toggle dropdown nav */
+.dropdown-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Dropdown container (initially hidden) */
+.dropdown-menu {
+  position: fixed;
+  top: 3.5rem;
+  left: 1rem;
+  display: none;
+  flex-direction: column;
+  background-color: var(--dropdown-bg);
+  color: var(--dropdown-fg);
+  border: 1px solid var(--glow);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  z-index: 1000;
+}
+
+/* Each dropdown item (link or button) */
+.dropdown-menu a,
+.dropdown-menu button {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  color: inherit;
+  width: 100%;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/* Highlight on hover for dropdown items */
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* Center main content and add spacing from top nav */
+main {
+  padding-top: 6rem;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+/* Main header styling */
+.me h1 {
+  font-size: 2.5rem;
+  margin: 2rem 0 0.5rem;
+}
+
+/* Animated subheading text (typewriter effect) */
+.subheading {
+  font-size: 1.25rem;
+  color: var(--accent);
+  font-family: monospace;
+  min-height: 2rem; /* reserve space during transitions */
+}
+
+/* Intro paragraph about the user */
+.about-brief {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: var(--text-dark);
+}
+
+/* Container for action buttons */
+.actions {
+  margin: 3rem auto;
+}
+
+/* Base button styles */
+.btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent);
+  color: #0A192F;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0.5rem;
+  border-radius: 8px;
+  display: inline-block;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px var(--glow);
+}
+
+/* Optional outlined button style */
+.btn.outline {
+  background-color: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}

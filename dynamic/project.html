@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Details</title>
+  <link rel="stylesheet" href="/styles/projects.css">
+</head>
+<body class="theme">
+
+  <button id="dropdownBtn" class="dropdown-toggle">&#9776;</button>
+  <div id="dropdownMenu" class="dropdown-menu">
+    <a href="/index.html">Home</a>
+  </div>
+  <main class="container">
+    <h1 id="project-title"></h1>
+    <p id="project-summary" class="summary"></p>
+
+    <section>
+      <h2>Overview</h2>
+      <p id="project-overview"></p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul id="project-features"></ul>
+    </section>
+
+    <section>
+      <h2>Challenges</h2>
+      <p id="project-challenges"></p>
+    </section>
+
+    <section>
+      <h2>My Contributions</h2>
+      <p id="project-contributions"></p>
+    </section>
+
+<section id="screenshots-section">
+  <h2>Screenshots</h2>
+  <div class="carousel-wrapper">
+    <div id="project-screenshots" class="carousel"></div>
+    <div class="carousel-controls-bottom">
+      <button class="carousel-btn left" onclick="scrollCarousel('left')">&#10094;</button>
+      <button class="carousel-btn right" onclick="scrollCarousel('right')">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+    <section>
+      <h2>Important Links</h2>
+      <div id="project-links" class="link-cards"></div>
+    </section>
+  </main>
+
+  <div id="notification-container"></div>
+  <script src="/scripts/projects.js"></script>
+  <script src="/scripts/dropdownToggle.js"></script>
+</body>
+</html>
