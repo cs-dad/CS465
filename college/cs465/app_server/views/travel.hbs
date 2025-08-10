@@ -23,7 +23,7 @@
 						<ul>
 							{{#each trips}}
 								<li>
-								<a href="/travel/"><img src="images/{{this.image}}" alt="{{this.name}}"></a>
+								<a href="/api/trips/{{this.code}}"><img src="images/{{this.image}}" alt="{{this.name}}"></a>
 								<h3>{{this.name}}</h3>
 								{{{this.description}}}
 								</li>

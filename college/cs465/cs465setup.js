@@ -20,11 +20,17 @@ const setupCS465Applet = () => {
     // import all of our routes for cs465
     const indexRouter = require('./app_server/routes/index');
     const travelRouter = require('./app_server/routes/travel');
+
+    const apiIndexRouter = require('./app_server/api/routes/index');
     // the handbook didn't specify what the user's router would be, so I'm going to not include it for the time being
 
+    // bring in the database
+    const mongoose = require('./app_server/api/models/db');
+    
     // use the routes
     cs465.use('/', indexRouter);
     cs465.use('/travel', travelRouter);
+    cs465.use('/api', apiIndexRouter);
 
     return cs465;
 }
