@@ -13,10 +13,8 @@ require('dotenv').config();
 // create an express application
 const app = express();
 
-// use cors middleware, restricting on production
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? 'https://csdad.us/' : '*'
-}));
+
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -38,6 +36,11 @@ const cs465Setup = require('./college/cs465/cs465setup');
 // use vhost to host the subdomain
 app.use(vhost(process.env.NODE_ENV === 'production'
   ? 'cs465.csdad.us' : 'cs465.localhost', cs465Setup()));
+
+// use cors middleware, restricting on production
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' ? 'https://csdad.us/' : '*'
+}));
 
 // static file hosting
 app.use(express.static(path.join(__dirname, 'public')));
@@ -91,8 +94,8 @@ app.get('/project/:id', async (req, res) => {
 const initHTTPS = () => {
 
     const sslOptions = { 
-        key: fs.readFileSync(path.join(CERT_PATH, 'csdad.us-key.pem')),
-        cert: fs.readFileSync(path.join(CERT_PATH, 'csdad.us-crt.pem')),
+        key: fs.readFileSync(path.join(CERT_PATH, 'privkey.pem')),
+        cert: fs.readFileSync(path.join(CERT_PATH, 'fullchain.pem')),
         passphrase: process.env.SSL_PASSPHRASE || 'none' // option to add passphrase to decrypt the key
     }
 
